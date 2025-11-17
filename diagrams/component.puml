@@ -1,0 +1,31 @@
+@startuml
+
+skinparam backgroundColor #FFFFFF
+skinparam shadowing true
+skinparam roundCorner 20
+skinparam Rectangle {
+  BackgroundColor #DCE6F2
+  BorderColor #4A627A
+  FontSize 16
+  FontColor #2A3A4A
+}
+
+skinparam ArrowColor #4A627A
+skinparam ArrowThickness 2
+
+
+rectangle "CEL IN" as CELIN #CEDFF7
+rectangle "CEL OUT" as CELOUT #CEDFF7
+
+rectangle "Backend\nServer" as Backend #BFD4EA
+
+rectangle "DB" as DB #CEDFF7
+rectangle "Frontend" as FE #CEDFF7
+
+CELIN -[#4A627A]-> Backend
+CELOUT -[#4A627A]-> Backend
+
+Backend -[#4A627A]-> DB
+Backend -[#4A627A]-> FE
+
+@enduml

@@ -1,0 +1,44 @@
+@startuml
+title **Flujo General – Identificación Facial y Conteo de Personas**
+
+start
+:Inicio del sistema;
+
+partition "Celular (IN / OUT)" {
+    :Capturar imagen con cámara;
+    :Detectar cambios en la imagen;
+
+    if ("¿La imagen cambió?") then (Sí)
+        :Enviar imagen al servidor;
+        :Enviar ID del celular (IN / OUT);
+    else (No)
+        :Esperar nueva captura;
+        stop
+    endif
+}
+
+partition "Servidor (Flask + Python)" {
+    :Recibir imagen e ID del celular;
+    :Procesar imagen (detección de rostros/personas);
+
+    if ("¿Se identificó un rostro?") then (Sí)
+        :Identificar persona;
+        :Obtener contactId (si aplica);
+    else (No)
+        :Registrar solo conteo;
+    endif
+
+    :Generar registro:
+    - Timestamp UTC
+    - Dirección (IN/OUT)
+    - Cantidad detectada
+    - contactId (opcional);
+
+    :Convertir imagen a Base64;
+    :Preparar datos para guardar;
+}
+
+
+
+stop
+@enduml
