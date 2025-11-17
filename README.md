@@ -1,4 +1,4 @@
-📊 Diagrams – PCWCV Project
+📊 Diagrams – People Counter With CV Project
 
 Este directorio contiene los diagramas principales del proyecto PCWCV, un sistema diseñado para contar personas mediante una cámara y enviar alertas automáticas cuando se alcanza la capacidad máxima permitida en un espacio.
 
@@ -7,9 +7,9 @@ Los diagramas incluidos ayudan a entender mejor la arquitectura, el flujo de dat
 🔗 Puedes ver estos diagramas directamente aquí:
 https://github.com/BrandonSG2/pcwcv/tree/main/diagrams
 
-🧠 Sobre el proyecto PCWCV
+🧠 Sobre el proyecto People Counter With CV
 
-El proyecto PCWCV es un sistema de conteo de personas que funciona mediante:
+El proyecto People Counter With CV es un sistema de conteo de personas que funciona mediante:
 
     📷 Una cámara que detecta entradas y salidas.
     
