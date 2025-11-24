@@ -1,0 +1,3 @@
+[submodule "people_counting"]
+	path = people_counting
+	url = https://github.com/saimj7/People-Counting-in-Real-Time.git
