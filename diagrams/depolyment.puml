@@ -1,0 +1,41 @@
+@startuml
+!define AWSPUML https://raw.githubusercontent.com/awslabs/aws-icons-for-plantuml/v14.0/LATEST/AWSPUML
+skinparam componentStyle rectangle
+
+title Diagrama de Despliegue - Conteo de Personas con Celular
+
+node "Celular IN" as CelularIN {
+    component "Cámara" as CamIN
+    component "Cliente IN" as ClientIN
+    CamIN --> ClientIN : Captura imagen
+}
+
+node "Celular OUT" as CelularOUT {
+    component "Cámara" as CamOUT
+    component "Cliente OUT" as ClientOUT
+    CamOUT --> ClientOUT : Captura imagen
+}
+
+node "Servidor" as Server {
+    component "API Flask" as FlaskAPI
+    component "Procesador de Imagen" as ImageProc
+}
+
+' Flujo de comunicación
+ClientIN --> FlaskAPI : Enviar imagen con timestamp, dirección, contactId
+ClientOUT --> FlaskAPI : Enviar imagen con timestamp, dirección, contactId
+
+FlaskAPI --> ImageProc : Procesar imagen
+ImageProc --> FlaskAPI : Resultado conteo y reconocimiento
+
+' UI
+node "UI" {
+
+    component "Conteo de Personas" as UICont
+    
+
+    FlaskAPI --> UICont : Mostrar conteo IN/OUT
+  
+}
+
+@enduml
